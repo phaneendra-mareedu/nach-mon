@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NACH Dashboard — Welcome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --v6-ink: #0a0f1e;
+      --v6-ink-2: #1a2038;
+      --v6-ink-3: #2a3050;
+      --v6-text: #1e2238;
+      --v6-text-2: #4a4f6a;
+      --v6-text-3: #7a7f96;
+      --v6-muted: #a8acc0;
+      --v6-rule: #dbdfe8;
+      --v6-rule-2: #edeff4;
+      --v6-paper: #fafbfc;
+      --v6-paper-2: #f5f6f8;
+      --v6-card: #ffffff;
+      --v6-accent: #2558e8;
+      --v6-accent-2: #1d4ed8;
+      --v6-accent-pale: #eef2ff;
+      --v6-accent-weak: rgba(37, 88, 232, 0.08);
+      --v6-ok: #0a7d3e;
+      --v6-ok-pale: #eef7f0;
+      --v6-ok-weak: rgba(10, 125, 62, 0.08);
+      --v6-warn: #c67211;
+      --v6-warn-pale: #fdf6ea;
+      --v6-warn-weak: rgba(198, 114, 17, 0.1);
+      --v6-crit: #b0232e;
+      --v6-crit-pale: #fcedef;
+      --v6-crit-weak: rgba(176, 35, 46, 0.1);
+      --v6-fs-display: 22px;
+      --v6-fs-h1: 18px;
+      --v6-fs-h2: 15px;
+      --v6-fs-body: 12.5px;
+      --v6-fs-data: 11.5px;
+      --v6-fs-caption: 9px;
+      --v6-fs-eyebrow: 8.5px;
+      --v6-font-display: 'Georgia', 'EB Garamond', serif;
+      --v6-font-body: 'Inter', 'Inter Tight', -apple-system, sans-serif;
+      --v6-font-mono: 'JetBrains Mono', 'Consolas', monospace;
+      --v6-gap: 12px;
+      --v6-pad: 14px;
+      --v6-radius: 6px;
+      --v6-radius-lg: 10px;
+    }
+    
+    html, body {
+      height: 100%;
+      background: var(--v6-paper);
+      color: var(--v6-text);
+      font-family: var(--v6-font-body);
+      font-size: var(--v6-fs-body);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    
+    header {
+      margin-bottom: 48px;
+      text-align: center;
+    }
+    
+    .logo {
+      font-family: var(--v6-font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--v6-ok);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    
+    h1 {
+      font-size: var(--v6-fs-display);
+      font-weight: 700;
+      color: var(--v6-ink);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    
+    .subtitle {
+      font-size: var(--v6-fs-h2);
+      color: var(--v6-text-2);
+      margin-bottom: 8px;
+    }
+    
+    .tagline {
+      font-family: var(--v6-font-mono);
+      font-size: var(--v6-fs-eyebrow);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--v6-accent);
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    
+    .card {
+      background: var(--v6-card);
+      border: 1px solid var(--v6-rule);
+      border-radius: var(--v6-radius-lg);
+      padding: 24px;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 0 rgba(10, 15, 30, 0.02), 0 2px 8px rgba(10, 15, 30, 0.04);
+    }
+    
+    .card:hover {
+      border-color: var(--v6-accent);
+      box-shadow: 0 1px 0 rgba(10, 15, 30, 0.02), 0 8px 22px rgba(10, 15, 30, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .card-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    
+    .card-title {
+      font-family: var(--v6-font-display);
+      font-size: var(--v6-fs-h2);
+      font-weight: 700;
+      color: var(--v6-ink);
+      margin-bottom: 8px;
+    }
+    
+    .card-text {
+      font-size: var(--v6-fs-body);
+      color: var(--v6-text-2);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--v6-radius);
+      border: 1px solid var(--v6-rule);
+      background: var(--v6-card);
+      color: var(--v6-text);
+      font-family: var(--v6-font-body);
+      font-size: var(--v6-fs-body);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.12s ease;
+      text-decoration: none;
+    }
+    
+    .btn:hover {
+      border-color: var(--v6-accent);
+      color: var(--v6-accent);
+    }
+    
+    .btn-primary {
+      background: var(--v6-accent);
+      color: #fff;
+      border-color: var(--v6-accent);
+    }
+    
+    .btn-primary:hover {
+      background: var(--v6-accent-2);
+      border-color: var(--v6-accent-2);
+      color: #fff;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-family: var(--v6-font-mono);
+      font-size: var(--v6-fs-caption);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      background: var(--v6-accent-weak);
+      color: var(--v6-accent);
+    }
+    
+    .feature-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+    
+    .feature-list li {
+      padding: 8px 0;
+      padding-left: 28px;
+      position: relative;
+      color: var(--v6-text-2);
+      font-size: var(--v6-fs-body);
+    }
+    
+    .feature-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--v6-ok);
+      font-weight: 700;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid var(--v6-rule);
+      color: var(--v6-text-3);
+      font-size: var(--v6-fs-caption);
+    }
+    
+    footer a {
+      color: var(--v6-accent);
+      text-decoration: none;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="header-logo">◆ NACH</a>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="alerts.html">Alerts</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="banks.html">Banks</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+        <div class="nav-right">
+            <button class="btn btn-sm">⚙ Config</button>
+            <button class="btn btn-sm">👤 Profile</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <header>
+            <div class="logo">◆ NACH</div>
+            <h1>Welcome to NACH Dashboard</h1>
+            <p class="subtitle">National Automated Clearing House — Centralized Monitoring Platform</p>
+            <span class="tagline">Real-time · Intelligence-Driven · Bank Operations</span>
+        </header>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <div class="card-title">Real-time Monitoring</div>
+                <p class="card-text">Track NACH transactions with live dashboards, instant alerts, and comprehensive analytics across all banks.</p>
+                <ul class="feature-list">
+                    <li>Live transaction feeds</li>
+                    <li>Performance metrics</li>
+                    <li>Automated alerts</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <div class="card-title">AI Intelligence</div>
+                <p class="card-text">Predictive anomaly detection, root cause analysis, and intelligent escalation powered by machine learning.</p>
+                <ul class="feature-list">
+                    <li>Pattern recognition</li>
+                    <li>Predictive insights</li>
+                    <li>Auto-escalation</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">💼</div>
+                <div class="card-title">Bank Integration</div>
+                <p class="card-text">Seamless integration with all NPCI member banks for coordinated operations and regulatory compliance.</p>
+                <ul class="feature-list">
+                    <li>Multi-bank sync</li>
+                    <li>NPCI compliant</li>
+                    <li>Secure API</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">📈</div>
+                <div class="card-title">Analytics & Reporting</div>
+                <p class="card-text">Deep insights into transaction patterns, settlement failures, and operational performance with custom reports.</p>
+                <ul class="feature-list">
+                    <li>Custom reports</li>
+                    <li>Trend analysis</li>
+                    <li>Export formats</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">🔐</div>
+                <div class="card-title">Security & Compliance</div>
+                <p class="card-text">Enterprise-grade security with role-based access, audit trails, and regulatory compliance management.</p>
+                <ul class="feature-list">
+                    <li>Role-based access</li>
+                    <li>Audit logging</li>
+                    <li>Compliance tools</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">✉️</div>
+                <div class="card-title">Communication Hub</div>
+                <p class="card-text">Institutional communication centre for bank correspondence, escalation protocols, and compliance notifications.</p>
+                <ul class="feature-list">
+                    <li>Template library</li>
+                    <li>Auto-population</li>
+                    <li>Audit trail</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 48px;">
+            <button class="btn btn-primary">
+                ➜ Launch Dashboard
+            </button>
+            <button class="btn" style="margin-left: 12px;">
+                ℹ Documentation
+            </button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>NACH Dashboard v6.5 — © 2026 NPCI. All rights reserved. <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Support</a></p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

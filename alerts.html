@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts — NACH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="header-logo">◆ NACH</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="alerts.html" class="active">Alerts</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="banks.html">Banks</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+        <div class="nav-right">
+            <button class="btn btn-sm">⚙ Config</button>
+            <button class="btn btn-sm">👤 Profile</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="sep">/</span>
+                <span class="cur">Alerts & Incidents</span>
+            </div>
+            <h1 class="page-title">Alert Management</h1>
+            <p class="page-subtitle">Real-time anomaly detection with AI-powered insights</p>
+        </div>
+
+        <!-- Alert Summary -->
+        <div class="grid-4 mb-3">
+            <div class="card">
+                <div class="card-head">
+                    <div class="card-icon">🔴</div>
+                    <div class="card-title">Critical</div>
+                </div>
+                <div class="card-body">
+                    <div style="font-family: 'JetBrains Mono'; font-size: 28px; font-weight: 800; color: #b0232e; margin: 12px 0;">3</div>
+                    <div style="font-size: 11px; color: #7a7f96;">Require immediate action</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-head">
+                    <div class="card-icon">🟡</div>
+                    <div class="card-title">Warning</div>
+                </div>
+                <div class="card-body">
+                    <div style="font-family: 'JetBrains Mono'; font-size: 28px; font-weight: 800; color: #c67211; margin: 12px 0;">8</div>
+                    <div style="font-size: 11px; color: #7a7f96;">Monitor closely</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-head">
+                    <div class="card-icon">🤖</div>
+                    <div class="card-title">AI Insights</div>
+                </div>
+                <div class="card-body">
+                    <div style="font-family: 'JetBrains Mono'; font-size: 28px; font-weight: 800; color: #2558e8; margin: 12px 0;">5</div>
+                    <div style="font-size: 11px; color: #7a7f96;">Predictive anomalies</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-head">
+                    <div class="card-icon">✓</div>
+                    <div class="card-title">Resolved</div>
+                </div>
+                <div class="card-body">
+                    <div style="font-family: 'JetBrains Mono'; font-size: 28px; font-weight: 800; color: #0a7d3e; margin: 12px 0;">42</div>
+                    <div style="font-size: 11px; color: #7a7f96;">This month</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alert List -->
+        <div class="card">
+            <div class="card-head">
+                <div class="card-icon">📢</div>
+                <div class="card-title">Active Alerts</div>
+                <div style="margin-left: auto; display: flex; gap: 8px;">
+                    <button class="btn btn-sm">↑ Critical</button>
+                    <button class="btn btn-sm">All Types</button>
+                </div>
+            </div>
+            <div class="card-body" style="padding: 0;">
+                <table id="alert-table">
+                    <thead>
+                        <tr>
+                            <th style="padding: 12px 20px; width: 30px;"></th>
+                            <th>Alert</th>
+                            <th>Source</th>
+                            <th>Severity</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                            <th style="width: 80px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #fcedef;">
+                            <td style="padding: 12px 20px; font-weight: 800; color: #b0232e;">!</td>
+                            <td><strong>SBIN Network Failure</strong><br><span style="font-size: 11px; color: #7a7f96;">Settlement processing halted</span></td>
+                            <td>State Bank of India</td>
+                            <td><span class="badge crit">CRITICAL</span></td>
+                            <td style="font-family: 'JetBrains Mono'; font-size: 11px;">14:18:32</td>
+                            <td><span style="color: #b0232e; font-weight: 700;">⚠ Open</span></td>
+                            <td>
+                                <button class="btn btn-xs" onclick="Notification.show('Alert assigned to on-call team', 'success')">Escalate</button>
+                            </td>
+                        </tr>
+                        <tr style="background: #fdf6ea;">
+                            <td style="padding: 12px 20px; font-weight: 800; color: #c67211;">⚠</td>
+                            <td><strong>High Response Time</strong><br><span style="font-size: 11px; color: #7a7f96;">HDFC-Mumbai cluster degraded</span></td>
+                            <td>HDFC Bank</td>
+                            <td><span class="badge warn">WARNING</span></td>
+                            <td style="font-family: 'JetBrains Mono'; font-size: 11px;">13:45:12</td>
+                            <td><span style="color: #c67211; font-weight: 700;">🔍 In Progress</span></td>
+                            <td>
+                                <button class="btn btn-xs">Investigate</button>
+                            </td>
+                        </tr>
+                        <tr style="background: #f5f6f8;">
+                            <td style="padding: 12px 20px; font-weight: 800; color: #2558e8;">🤖</td>
+                            <td><strong>Anomaly Detected</strong><br><span style="font-size: 11px; color: #7a7f96;">Unusual transaction pattern in ICICI cluster</span></td>
+                            <td>ICICI Bank</td>
+                            <td><span class="badge" style="background: rgba(37, 88, 232, 0.08); color: #2558e8;">AI INSIGHT</span></td>
+                            <td style="font-family: 'JetBrains Mono'; font-size: 11px;">13:32:05</td>
+                            <td><span style="color: #2558e8; font-weight: 700;">✓ Monitored</span></td>
+                            <td>
+                                <button class="btn btn-xs">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 20px; font-weight: 800; color: #c67211;">⚠</td>
+                            <td><strong>Disk Space Low</strong><br><span style="font-size: 11px; color: #7a7f96;">Archive server at 87% capacity</span></td>
+                            <td>Infrastructure</td>
+                            <td><span class="badge warn">WARNING</span></td>
+                            <td style="font-family: 'JetBrains Mono'; font-size: 11px;">13:15:48</td>
+                            <td><span style="color: #7a7f96; font-weight: 700;">⟳ Pending Review</span></td>
+                            <td>
+                                <button class="btn btn-xs">Review</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 20px; font-weight: 800; color: #0a7d3e;">✓</td>
+                            <td><strong>Settlement Complete</strong><br><span style="font-size: 11px; color: #7a7f96;">2M+ transactions processed successfully</span></td>
+                            <td>Axis Bank</td>
+                            <td><span class="badge ok">RESOLVED</span></td>
+                            <td style="font-family: 'JetBrains Mono'; font-size: 11px;">12:58:20</td>
+                            <td><span style="color: #0a7d3e; font-weight: 700;">✓ Closed</span></td>
+                            <td>
+                                <button class="btn btn-xs">Archive</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Root Cause Analysis -->
+        <div class="card mt-3">
+            <div class="card-head">
+                <div class="card-icon">🔬</div>
+                <div class="card-title">Root Cause Analysis — SBIN Network Failure</div>
+            </div>
+            <div class="card-body">
+                <div style="background: #fef2f2; border: 1px solid #fbcfe8; border-radius: 6px; padding: 12px; margin-bottom: 16px;">
+                    <div style="font-weight: 700; color: #b0232e; margin-bottom: 4px;">AI Analysis In Progress</div>
+                    <div style="font-size: 11px; color: #7a7f96;">Correlating 47 data signals • Analyzing 15min incident window • Confidence: 78%</div>
+                </div>
+                <div style="display: grid; gap: 12px;">
+                    <div style="padding: 12px; background: #fafbfc; border-radius: 6px; border-left: 3px solid #b0232e;">
+                        <div style="font-weight: 700; color: #1e2238; margin-bottom: 4px;">🏥 Primary Cause</div>
+                        <div style="font-size: 11px; color: #7a7f96;">Load balancer failover event triggered at 14:18 UTC. Primary node memory exhaustion detected.</div>
+                    </div>
+                    <div style="padding: 12px; background: #fafbfc; border-radius: 6px; border-left: 3px solid #c67211;">
+                        <div style="font-weight: 700; color: #1e2238; margin-bottom: 4px;">📊 Contributing Factor</div>
+                        <div style="font-size: 11px; color: #7a7f96;">25% higher transaction volume; holiday effect. Caching mechanism hit rate dropped to 62%.</div>
+                    </div>
+                    <div style="padding: 12px; background: #fafbfc; border-radius: 6px; border-left: 3px solid #0a7d3e;">
+                        <div style="font-weight: 700; color: #1e2238; margin-bottom: 4px;">✓ Recommendation</div>
+                        <div style="font-size: 11px; color: #7a7f96;">Increase cache TTL • Scale up 2 additional nodes • Implement circuit breaker at 85% memory threshold</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>NACH Dashboard v6.5 — © 2026 NPCI. <a href="#">Help</a> · <a href="#">Status</a> · <a href="#">Terms</a></p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

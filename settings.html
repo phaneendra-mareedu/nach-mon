@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings — NACH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="header-logo">◆ NACH</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="alerts.html">Alerts</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="banks.html">Banks</a>
+            <a href="settings.html" class="active">Settings</a>
+        </nav>
+        <div class="nav-right">
+            <button class="btn btn-sm">⚙ Config</button>
+            <button class="btn btn-sm">👤 Profile</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="sep">/</span>
+                <span class="cur">Settings</span>
+            </div>
+            <h1 class="page-title">Configuration</h1>
+            <p class="page-subtitle">Account and system preferences</p>
+        </div>
+
+        <div class="grid-1" style="max-width: 600px;">
+            <!-- Profile Settings -->
+            <div class="card mb-3">
+                <div class="card-head">
+                    <div class="card-icon">👤</div>
+                    <div class="card-title">Profile Settings</div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" value="Giridhar G.M." />
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" value="giridhar.gm@npci.org.in" />
+                    </div>
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select>
+                            <option>Chief, Customer Success</option>
+                            <option>Operations Lead</option>
+                            <option>Technical Lead</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Department</label>
+                        <input type="text" value="Customer Operations" />
+                    </div>
+                    <button class="btn btn-primary" onclick="Notification.show('Profile updated successfully', 'success')">
+                        ✓ Save Changes
+                    </button>
+                </div>
+            </div>
+
+            <!-- Notification Preferences -->
+            <div class="card mb-3">
+                <div class="card-head">
+                    <div class="card-icon">🔔</div>
+                    <div class="card-title">Notifications</div>
+                </div>
+                <div class="card-body">
+                    <div style="display: grid; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <input type="checkbox" id="n-critical" checked style="width: 18px; height: 18px; cursor: pointer;">
+                            <label for="n-critical" style="flex: 1; margin-bottom: 0; cursor: pointer;">Critical Alerts (Email + SMS)</label>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <input type="checkbox" id="n-warning" checked style="width: 18px; height: 18px; cursor: pointer;">
+                            <label for="n-warning" style="flex: 1; margin-bottom: 0; cursor: pointer;">Warning Alerts (Email only)</label>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <input type="checkbox" id="n-daily" checked style="width: 18px; height: 18px; cursor: pointer;">
+                            <label for="n-daily" style="flex: 1; margin-bottom: 0; cursor: pointer;">Daily Summary Report</label>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <input type="checkbox" id="n-ai" checked style="width: 18px; height: 18px; cursor: pointer;">
+                            <label for="n-ai" style="flex: 1; margin-bottom: 0; cursor: pointer;">AI Insights & Trends</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" style="margin-top: 16px;" onclick="Notification.show('Notification preferences saved', 'success')">
+                        ✓ Save Preferences
+                    </button>
+                </div>
+            </div>
+
+            <!-- Alert Thresholds -->
+            <div class="card mb-3">
+                <div class="card-head">
+                    <div class="card-icon">⚙</div>
+                    <div class="card-title">Alert Thresholds</div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Success Rate Warning (%)</label>
+                        <input type="number" value="98.5" min="90" max="99.9" step="0.1" />
+                    </div>
+                    <div class="form-group">
+                        <label>Success Rate Critical (%)</label>
+                        <input type="number" value="95.0" min="80" max="99.9" step="0.1" />
+                    </div>
+                    <div class="form-group">
+                        <label>Latency Warning (ms)</label>
+                        <input type="number" value="200" min="50" max="1000" step="10" />
+                    </div>
+                    <div class="form-group">
+                        <label>Latency Critical (ms)</label>
+                        <input type="number" value="500" min="100" max="2000" step="10" />
+                    </div>
+                    <button class="btn btn-primary" onclick="Notification.show('Thresholds configured', 'success')">
+                        ✓ Apply Thresholds
+                    </button>
+                </div>
+            </div>
+
+            <!-- API Keys -->
+            <div class="card mb-3">
+                <div class="card-head">
+                    <div class="card-icon">🔑</div>
+                    <div class="card-title">API Keys</div>
+                </div>
+                <div class="card-body">
+                    <div style="background: #f5f6f8; border: 1px solid #dbdfe8; border-radius: 6px; padding: 12px; margin-bottom: 12px;">
+                        <div style="font-family: 'JetBrains Mono'; font-size: 10px; color: #7a7f96; word-break: break-all;">
+                            npci_live_a8f2d9e4b7c1k3m9z6x2
+                        </div>
+                        <div style="display: flex; gap: 8px; margin-top: 8px;">
+                            <button class="btn btn-xs" onclick="copyToClipboard('npci_live_a8f2d9e4b7c1k3m9z6x2', this)">📋 Copy</button>
+                            <button class="btn btn-xs">↻ Regenerate</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%;">
+                        + Generate New Key
+                    </button>
+                </div>
+            </div>
+
+            <!-- Security -->
+            <div class="card mb-3">
+                <div class="card-head">
+                    <div class="card-icon">🔐</div>
+                    <div class="card-title">Security</div>
+                </div>
+                <div class="card-body">
+                    <div style="display: grid; gap: 12px; margin-bottom: 16px;">
+                        <div>
+                            <div style="font-weight: 700; color: #1e2238; margin-bottom: 4px; font-size: 11px;">Two-Factor Authentication</div>
+                            <div style="font-size: 11px; color: #7a7f96; margin-bottom: 8px;">✓ Enabled (Authenticator App)</div>
+                            <button class="btn btn-sm">Change Method</button>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; color: #1e2238; margin-bottom: 4px; font-size: 11px;">Password</div>
+                            <div style="font-size: 11px; color: #7a7f96; margin-bottom: 8px;">Last changed 32 days ago</div>
+                            <button class="btn btn-sm">Change Password</button>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; color: #1e2238; margin-bottom: 4px; font-size: 11px;">Session Timeout</div>
+                            <div style="font-size: 11px; color: #7a7f96; margin-bottom: 8px;">60 minutes of inactivity</div>
+                            <select style="width: 100%;">
+                                <option>30 minutes</option>
+                                <option>60 minutes</option>
+                                <option>120 minutes</option>
+                                <option>Never</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Settings -->
+            <div class="card mb-3">
+                <div class="card-head">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-title">System Preferences</div>
+                </div>
+                <div class="card-body">
+                    <div style="display: grid; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <input type="checkbox" id="s-dark" style="width: 18px; height: 18px; cursor: pointer;">
+                            <label for="s-dark" style="flex: 1; margin-bottom: 0; cursor: pointer; font-size: 11px;">Dark Mode (Coming Soon)</label>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <input type="checkbox" id="s-compact" style="width: 18px; height: 18px; cursor: pointer;">
+                            <label for="s-compact" style="flex: 1; margin-bottom: 0; cursor: pointer; font-size: 11px;">Compact View</label>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <input type="checkbox" id="s-sounds" checked style="width: 18px; height: 18px; cursor: pointer;">
+                            <label for="s-sounds" style="flex: 1; margin-bottom: 0; cursor: pointer; font-size: 11px;">Alert Sounds</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="card" style="border-color: #fbcfe8; background: #fcedef;">
+                <div class="card-head" style="background: #fbcfe8; border-bottom-color: #fbcfe8;">
+                    <div class="card-icon">⚠</div>
+                    <div class="card-title" style="color: #b0232e;">Danger Zone</div>
+                </div>
+                <div class="card-body">
+                    <div style="display: grid; gap: 8px;">
+                        <button class="btn btn-crit" style="width: 100%;" onclick="Notification.show('Session terminated. You will be logged out.', 'info')">
+                            🚪 Sign Out Everywhere
+                        </button>
+                        <button class="btn btn-crit" style="width: 100%; opacity: 0.7;" onclick="Notification.show('Account deletion requires verification. Check your email.', 'warning')">
+                            ❌ Delete Account
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>NACH Dashboard v6.5 — © 2026 NPCI. <a href="#">Help</a> · <a href="#">Status</a> · <a href="#">Terms</a></p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

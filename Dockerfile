@@ -1,10 +1,9 @@
 FROM nginx:alpine
 
-# Copy the HTML file to nginx's default serving directory
-COPY index.html /usr/share/nginx/html/
+COPY index.html dashboard.html alerts.html analytics.html banks.html settings.html /usr/share/nginx/html/
+COPY styles.css scripts.js /usr/share/nginx/html/
+COPY assets /usr/share/nginx/html/assets
 
-# Expose port 80
 EXPOSE 80
 
-# Start nginx
 CMD ["nginx", "-g", "daemon off;"]
